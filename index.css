@@ -6,6 +6,7 @@ body{
 /* -------------------------------------------------------------------- */
 h1, h2, h3, h4, h5, h6, p, a, div {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  animation: fade-anim .6s ease-in-out;
 }
 h1{
   font-size: 35px;
@@ -39,6 +40,7 @@ div{
   padding-top: 1px;
   margin-top: 1rem;
   margin-bottom: 1rem;
+  animation: scale-anim .4s ease-in-out;
 }
 header{
   background-color: #444444;
@@ -118,3 +120,26 @@ header{
   background-color: #665f6c9a;
 }
 /* -------------------------------------------------------------------- */
+@keyframes scale-anim {
+  0% {
+    transform:scale(0);
+  }
+  20% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }  
+}
+
+@keyframes fade-anim{
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
