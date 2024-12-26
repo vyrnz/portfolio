@@ -1,0 +1,120 @@
+
+body{
+  background-color: #222328;
+  height: 100vh;
+}
+/* -------------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6, p, a, div {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+h1{
+  font-size: 35px;
+}
+a{
+  color: #ECF1F3;
+  text-decoration: none;
+}
+button{
+  text-decoration: none;
+  background-color: transparent;
+  color: #F8F9FA;
+  cursor: pointer;
+  font-size: 120%;
+  z-index: 999;
+  background-color: #444444;
+  border-radius: 5rem;
+}
+button:hover{
+  background-color: #444444;
+}
+/* -------------------------------------------------------------------- */
+section{
+  margin-top: 0%;
+}
+div{
+  margin: 5%;
+  background-color: #665F6C;
+  padding: 30px;
+  border-radius: 5px;
+  padding-top: 1px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+header{
+  background-color: #444444;
+  padding: .5em;
+  color: #F8F9FA;
+  position: fixed;
+  border-radius: .5em;
+}
+/* -------------------------------------------------------------------- */
+#navMenu{
+  display: none;
+  /* background-color: #665F6C; */
+  float: left;
+  padding: 10px;
+  margin: .1rem;
+  width: 15rem;
+  height: 30rem;
+}
+#navMenu  li{
+  display:grid;
+  background-color: #222328;
+  padding: 10px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+#navTog {
+  color: #F8F9FA;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 120%;
+  z-index: 999;
+  background-color: #444444;
+  border-radius: 5rem;
+}
+
+#home{
+  padding: 5rem;
+}
+#home h1, #home p{
+  text-align: center;
+  line-height: 200%;
+}
+
+#about{
+  padding-bottom: 3rem;
+}
+
+#projects{
+  padding-bottom: 3rem;
+}
+#Pcontent{
+  margin: 0px;
+  padding: 1em;
+}
+
+#social{
+  padding-bottom: 3rem;
+}
+#Scontent{
+  margin: 0px;
+  padding: 1em;
+}
+
+#line{
+  background-color: #44444450;
+  height: 1px;
+  margin: 1em 0;
+  padding: 0px;
+}
+
+/* -------------------------------------------------------------------- */
+.project{
+  background-color: #93889c5b;
+}
+
+.Main{
+  background-color: #665f6c9a;
+}
+/* -------------------------------------------------------------------- */

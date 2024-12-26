@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
+    <title>My Portfolio</title>
+</head>
+
+
+<body>
+  <div id="line"></div>
+    <header>
+        <button id="navTog" onclick="ToggleNav()">=</button>
+        <nav id="navMenu" style="display: none;">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#social">Social</a></li>
+        </nav>
+    </header>
+    <div class="Main" id="home">
+      <h1>Hello, World!</h1>
+      <p>Welcome to my portfolio! I'm a passionate front-end developer who loves crafting beautiful and functional websites. <br> My skills include <b> HTML, CSS, JavaScript,</b> and I'm always eager to learn new languages.<br> I'm experienced in building and testing both websites and web applications.</p>
+    </div>
+  <div id="line"></div>   
+    <div class="Main" id="about">
+      <h1>About Me</h1>
+      <button id="AcTog" onclick="ToggleAcontent()">></button>  
+      <div id="Acontent" style="display: none;">
+        <h2>Reira Edsel Setiawan</h2>
+        <p>I am a front-end developer with over 6 months of experience in web development. I have worked on a variety of projects, from small personal websites and other projects.</p> 
+        <p>My areas of expertise include HTML, CSS, JavaScript, and testing web or apps. <!-- I am also familiar with various frameworks and libraries, such as React, Vue, and Angular.--></p> 
+        <p>When I am not coding, I enjoy listening to music, playing video games, and watching movies.</p>
+        <p>My skills are:</p>
+        <p>●Designing <br>
+          ●Creative <br>
+            ●HTML Coding<br>
+            ●CSS Coding<br>
+            ●JS Coding</p>
+        </div>
+    </div>
+  <div id="line"></div>
+    <div class="Main" id="projects">
+      <h1>Projects</h1>
+      <button id="PjTog" onclick="TogglePcontent()">></button>
+      <div id="Pcontent" style="display: none;">
+      <div class="project">
+          <h2>This Website</h2>
+          <p>This is a website I make for my personal usage.</p>
+          <a href="#home">View Project</a>
+      </div>
+      <div class="project">
+          <h2>This Website V1</h2>
+          <p>This is a website I used for testing.</p>
+          <a href="v1/index.html">View Project</a>
+      </div>
+      </div>
+    </div>
+  <div id="line"></div>
+    <div class="Main" id="social">
+      <h1>Social</h1>
+      <button id="ScTog" onclick="ToggleScontent()">></button>
+        <div id="Scontent" style="display: none;">
+          <div class="project">
+              <h2>Youtube Main</h2>
+              <p>This is my Main youtube channel, used for gaming and etc.</p>
+              <a href="https://www.youtube.com/@BeyondCas">Youtube</a>
+          </div>
+              <!--<div class="project">
+                  <h3>Secondary Channel</h3>
+                  <p>This is my Secondary youtube channel, used for personal life.</p>
+                  <a href="https://www.youtube.com/channel/UCqXcCUJAhUj6oJ3Y_-xNzjg">Youtube</a>
+              </div>-->
+          <div class="project">
+              <h2>Itch.io</h2>
+              <p>This is my itch.io account.</p>
+              <a href="https://beyondcasual.itch.io">Itch</a>
+          </div>
+          <div class="project">
+              <h2>Roblox Main</h2>
+              <p>This is my Main roblox account.<br> Most of the games I've created have been made since I was 12 years old.</p>
+              <a href="https://www.roblox.com/users/1333361493/profile">Roblox</a>
+          </div>
+              <div class="project">
+              <h2>Roblox Secondary</h2>
+              <p>This is my Secondary roblox account.<br> Most of the games I've created have been made since I was 13 years old.</p>
+              <a href="https://www.roblox.com/users/2211804375/profile">Roblox</a>
+          </div>
+        </div>
+    </div>
+
+</body>
+
+
+</html>
+
