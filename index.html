@@ -11,29 +11,36 @@
 
 
 <body>
+  <div id="head">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#social">Social</a>
+    <a href="#portfolio">Portfolio</a>
+  </div>
   <div id="line"></div>
     <header>
         <button id="navTog" onclick="ToggleNav()">=</button>
         <nav id="navMenu" style="display: none;">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#social">Social</a></li>
+          <h2>Portfolio</h2>
+            <li><a href="portfolio/v2/index.html">V2 (Currently)</a></li>
+            <li><a href="portfolio/v1/index.html">V1</a></li>
+            <li><a href="https://create.roblox.com/talent/creators/1333361493">Roblox</a></li>
         </nav>
     </header>
     <div class="Main" id="home">
-      <h1>Hello, World!</h1>
-      <p>Welcome to my portfolio! I'm a passionate front-end developer who loves crafting beautiful and functional websites. <br> My skills include <b> HTML, CSS, JavaScript,</b> and I'm always eager to learn new languages.<br> I'm experienced in building and testing both websites and web applications.</p>
+      <h1><b>Hello, World!</b></h1>
+      <p>Welcome to my portfolio!</p>
     </div>
   <div id="line"></div>   
     <div class="Main" id="about">
       <h1>About Me</h1>
-      <button id="AcTog" onclick="ToggleAcontent()">></button>  
-      <div id="Acontent" style="display: none;">
+      <!-- <button id="AcTog" onclick="ToggleAcontent()">></button>   -->
+      <div id="Acontent" style="display: block;">
         <h2>Reira Edsel Setiawan</h2>
-        <p>I am a front-end developer with over 6 months of experience in web development. I have worked on a variety of projects, from small personal websites and other projects.</p> 
-        <p>My areas of expertise include HTML, CSS, JavaScript, and testing web or apps. <!-- I am also familiar with various frameworks and libraries, such as React, Vue, and Angular.--></p> 
-        <p>When I am not coding, I enjoy listening to music, playing video games, and watching movies.</p>
+        <p>I am a front-end developer with over 6 months of experience in web development.<br> I have worked on a variety of projects, from small personal websites and other projects.<br> 
+          My areas of expertise include HTML, CSS, JavaScript, and testing web or apps. <!-- I am also familiar with various frameworks and libraries, such as React, Vue, and Angular.--><br> 
+          When I am not coding, I enjoy listening to music, playing video games, and watching movies.<br></p>
         <p>My skills are:</p>
         <p>●Designing <br>
           ●Creative <br>
@@ -45,25 +52,26 @@
   <div id="line"></div>
     <div class="Main" id="projects">
       <h1>Projects</h1>
-      <button id="PjTog" onclick="TogglePcontent()">></button>
-      <div id="Pcontent" style="display: none;">
-      <div class="project">
-          <h2>This Website</h2>
-          <p>This is a website I make for my personal usage.</p>
-          <a href="#home">View Project</a>
-      </div>
-      <div class="project">
-          <h2>This Website V1</h2>
-          <p>This is a website I used for testing.</p>
-          <a href="v1/index.html">View Project</a>
-      </div>
+      <!-- <button id="PjTog" onclick="TogglePcontent()">></button> -->
+      <div id="Pcontent" style="display: block;">
+        <h2>None for websites</h2>
+        <!-- <div class="project">
+            <h2>This Website</h2>
+            <p>This is a website I make for my personal usage.</p>
+            <a href="#home">View Project</a>
+        </div>
+        <div class="project">
+            <h2>This Website V1</h2>
+            <p>This is a website I used for testing.</p>
+            <a href="v1/index.html">View Project</a>
+        </div> -->
       </div>
     </div>
   <div id="line"></div>
     <div class="Main" id="social">
       <h1>Social</h1>
-      <button id="ScTog" onclick="ToggleScontent()">></button>
-        <div id="Scontent" style="display: none;">
+      <!-- <button id="ScTog" onclick="ToggleScontent()">></button> -->
+        <div id="Scontent" style="display: block;">
           <div class="project">
               <h2>Youtube Main</h2>
               <p>This is my Main youtube channel, used for gaming and etc.</p>
@@ -91,6 +99,13 @@
           </div>
         </div>
     </div>
+    <div id="line"></div>
+    <div class="Main" id="portfolio">
+      <h1>Portfolio</h1>
+      <div class="project">
+        <h2>Portfolio</h2>
+        <a href="images/CV.pdf">Download</a>
+      </div>
 
 </body>
 

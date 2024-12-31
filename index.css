@@ -1,24 +1,29 @@
 
 body{
-  background-color: #222328;
-  height: 100vh;
+  background-color: #c6c9d8;
+  text-align: center;
 }
 /* -------------------------------------------------------------------- */
 h1, h2, h3, h4, h5, h6, p, a, div {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   animation: fade-anim .6s ease-in-out;
+  line-height: 30px;
 }
 h1{
   font-size: 35px;
+  text-align: center;
 }
 a{
-  color: #ECF1F3;
+  color: #fff3e7;
   text-decoration: none;
+  background-color: #696969dc;
+  padding: .5rem;
+  border-radius: .2rem;
 }
 button{
   text-decoration: none;
   background-color: transparent;
-  color: #F8F9FA;
+  color: #fff3e7;
   cursor: pointer;
   font-size: 120%;
   z-index: 999;
@@ -33,23 +38,36 @@ section{
   margin-top: 0%;
 }
 div{
-  margin: 5%;
-  background-color: #665F6C;
+  margin: .5 rem;
+  /* background-color: #444444; */
   padding: 30px;
   border-radius: 5px;
   padding-top: 1px;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
   animation: scale-anim .4s ease-in-out;
 }
 header{
-  background-color: #444444;
+  background-color: #44444473;
   padding: .5em;
   color: #F8F9FA;
   position: fixed;
   border-radius: .5em;
 }
 /* -------------------------------------------------------------------- */
+#head{
+  background-color: #444444;
+  padding: .5rem;
+  color: #F8F9FA;
+  align-content: center;
+  margin: -.5rem;
+  display: flex;
+  justify-content:left;
+  flex-wrap: nowrap;
+  flex-shrink: 2;
+}
+#head a{
+  margin: .5rem ;
+}
+
 #navMenu{
   display: none;
   /* background-color: #665F6C; */
@@ -61,13 +79,12 @@ header{
 }
 #navMenu  li{
   display:grid;
-  background-color: #222328;
-  padding: 10px;
+  /* background-color: #222328; */
+  padding: 1px;
   margin-top: 1px;
   margin-bottom: 1px;
 }
 #navTog {
-  color: #F8F9FA;
   cursor: pointer;
   text-decoration: none;
   font-size: 120%;
@@ -81,7 +98,6 @@ header{
 }
 #home h1, #home p{
   text-align: center;
-  line-height: 200%;
 }
 
 #about{
@@ -92,7 +108,6 @@ header{
   padding-bottom: 3rem;
 }
 #Pcontent{
-  margin: 0px;
   padding: 1em;
 }
 
@@ -100,7 +115,6 @@ header{
   padding-bottom: 3rem;
 }
 #Scontent{
-  margin: 0px;
   padding: 1em;
 }
 
@@ -112,12 +126,17 @@ header{
 }
 
 /* -------------------------------------------------------------------- */
-.project{
-  background-color: #93889c5b;
+.Main p{
+  margin-top: -1.5rem;
+}
+.Main h1{
+  font-size: 40px;
 }
 
-.Main{
-  background-color: #665f6c9a;
+.project{
+  background-color: #93889c5b;
+  display: grid;
+  text-align: center;
 }
 /* -------------------------------------------------------------------- */
 @keyframes scale-anim {
