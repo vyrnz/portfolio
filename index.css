@@ -71,7 +71,7 @@ header{
   align-content: center;
   margin: -.5rem;
   display: flex;
-  justify-content:left;
+  justify-content:center;
   flex-wrap: nowrap;
   flex-shrink: 2;
 }
