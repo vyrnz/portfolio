@@ -5,16 +5,27 @@ body{
 }
 /* -------------------------------------------------------------------- */
 h1, h2, h3, h4, h5, h6, p, a, div {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family:monospace;
   animation: fade-anim .6s ease-in-out;
   line-height: 30px;
 }
 h1{
   font-size: 35px;
   text-align: center;
+  letter-spacing: 2px;
+  font-weight: bolder;
+  line-height: 1em;
+}
+h2{
+  font-size: 23px;
+  font-weight:bold;
+}
+p{
+  line-height: 1.6;
+  font-size: 13px;
 }
 a{
-  color: #fff3e7;
+  color: #eaffe7;
   text-decoration: none;
   background-color: #696969dc;
   padding: .5rem;
@@ -23,7 +34,7 @@ a{
 button{
   text-decoration: none;
   background-color: transparent;
-  color: #fff3e7;
+  color: #eaffe7;
   cursor: pointer;
   font-size: 120%;
   z-index: 999;
@@ -96,8 +107,10 @@ header{
 #home{
   padding: 5rem;
 }
-#home h1, #home p{
-  text-align: center;
+#home h1{
+  font-weight: 900;
+  font-family: monospace;
+  letter-spacing: 5px;
 }
 
 #about{
@@ -136,7 +149,9 @@ header{
 .project{
   background-color: #93889c5b;
   display: grid;
-  text-align: center;
+  margin-top: 1em;
+  margin-left: 15%;
+  margin-right: 15%;
 }
 /* -------------------------------------------------------------------- */
 @keyframes scale-anim {
