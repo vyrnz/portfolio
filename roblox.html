@@ -73,9 +73,6 @@
     overflow: hidden;
     transition: max-height 0.5s ease;
   }
-  .collapsible-content.open {
-    max-height: none; /* removed height limit to allow full expansion */
-  }
   .max-w-15 {
     max-width: 15rem;
     line-height: 1.4;
@@ -560,12 +557,21 @@
       header.addEventListener('click', () => {
         header.classList.toggle('active');
         const content = header.nextElementSibling;
-        content.classList.toggle('open');
+        if (content.style.maxHeight) {
+          // Currently open, close it
+          content.style.maxHeight = null;
+          content.classList.remove('open');
+        } else {
+          // Currently closed, open it
+          content.style.maxHeight = content.scrollHeight + "px";
+          content.classList.add('open');
+        }
       });
     });
 
     // Initialize collapsible content maxHeight to 0 (collapsed)
     document.querySelectorAll('.collapsible-content').forEach(content => {
+      content.style.maxHeight = null;
       content.classList.remove('open');
     });
   </script>
