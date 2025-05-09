@@ -1,122 +1,208 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
-    <script src="index.js"></script>
-    <title>My Portfolio</title>
-</head>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   E-Station
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+ </head>
 
+ <body class="bg-gray-200 text-gray-900">
 
-<body>
-  <div id="head">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#social">Social</a>
-    <a href="#portfolio">Portfolio</a>
-  </div>
-  <div id="line"></div>
-    <header>
-        <button id="navTog" onclick="ToggleNav()">=</button>
-        <nav id="navMenu" style="display: none;">
-          <h2>Portfolio</h2>
-            <li><a href="index.html">V3 (Currently)</a></li>
-            <li><a href="v2/index.html">V2</a></li>
-            <li><a href="v1/index.html">V1</a></li>
-            <li><a href="https://create.roblox.com/talent/creators/1333361493">Roblox</a></li>
-        </nav>
-    </header>
-    <div class="Main" id="home">
-      <h1>Hello, World!</h1>
-      <p>Welcome to my portfolio!</p>
+  <header class="bg-blue-50 border-b border-gray-200 sticky top-0 z-30">
+
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+    <a class="flex items-center space-x-3" href="#">
+     <img alt="A" class="w-12 h-12 rounded-full object-cover" height="48" src="https://png.pngtree.com/png-vector/20230410/ourmid/pngtree-letter-e-logo-vector-png-image_6699445.png" width="48"/>
+      Edsel Station
+     </span>
+    </a>
+    <div class="hidden md:flex items-center space-x-4">
+     <a class="flex items-center space-x-2" href="#">
+      <img alt="User avatar" class="w-8 h-8 rounded-full object-cover" height="32" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3DpMzGvik_8f7kUGgxvx7S44vK3LY8tZcpw&s" width="32"/>
+      <span class="text-gray-700 font-semibold">
+       Guest
+      </span>
+     </a>
     </div>
-  <div id="line"></div>   
-    <div class="Main" id="about">
-      <h1>About Me</h1>
-      <!-- <button id="AcTog" onclick="ToggleAcontent()">></button>   -->
-      <div id="Acontent" style="display: block;">
-        <h2>Reira Edsel Setiawan</h2>
-        <p>I am a front-end developer with over 6 months of experience in web development.<br> I have worked on a variety of projects, from small personal websites and other projects.<br> 
+    <button aria-label="Open menu" class="md:hidden text-gray-700 hover:text-gray-900 focus:outline-none" id="mobile-menu-button">
+     <i class="fas fa-bars fa-lg">
+     </i>
+    </button>
+   </div>
+
+   <nav aria-label="Mobile menu" class="md:hidden bg-white border-t border-gray-200 hidden" id="mobile-menu">
+    <a class="block px-4 py-3 border-b border-gray-200 font-medium text-gray-700 hover:bg-gray-100" href="#">
+     Portfolio
+    </a>
+     <a class="flex items-center space-x-2" href="#">
+      <p>-</p>
+      <img alt="User avatar, placeholder letter U on gray background" class="w-8 h-8 rounded-full object-cover" height="32" src="https://storage.googleapis.com/a1aa/image/70f9f07f-710b-457f-caee-330504343494.jpg" width="32"/>
+      <span class="text-gray-700 font-semibold">
+       Guest
+      </span>
+     </a>
+    </div>
+   </nav>
+
+  </header>
+
+
+   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
+
+    <section class="banner w-full h-64 overflow-hidden rounded-lg mb-8">
+      <img src="/img/33.png" alt="Banner Image" class="w-full h-full object-cover"/>
+    </section>
+
+    <section class="flex flex-col md:flex-row md:space-x-8"> 
+
+     <aside class="md:w-1/3 flex flex-col items-center md:items-start">
+      <img alt="" class="rounded-full w-48 h-48 object-cover shadow-lg" height="300" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3DpMzGvik_8f7kUGgxvx7S44vK3LY8tZcpw&s" width="300"/>
+      <h1 class="mt-6 text-3xl font-bold text-gray-900">
+       Edsel
+      </h1>
+      <p class="mt-2 text-gray-600 text-center md:text-left max-w-xs">
+       Roblox Builder &amp; Designer
+      </p>
+      <div class="mt-4 flex space-x-4">
+        <a aria-label="Discord profile" class="text-gray-600 hover:text-gray-900 transition" href="https://discord.gg/BVqn7aqp" rel="noopener noreferrer" target="_blank">
+         <i class="fab fa-discord fa-2x">
+         </i>
+        </a>
+        <a aria-label="YouTube profile" class="text-gray-600 hover:text-gray-900 transition" href="https://www.youtube.com/@BeyondCas" rel="noopener noreferrer" target="_blank">
+         <i class="fab fa-youtube fa-2x">
+         </i>
+        </a>
+        <a aria-label="GitHub profile" class="text-gray-600 hover:text-gray-900 transition" href="https://github.com/vyrnz" rel="noopener noreferrer" target="_blank">
+         <i class="fab fa-github fa-2x">
+         </i>
+        </a>
+        <a aria-label="Email" class="text-gray-600 hover:text-gray-900 transition" href="mailto:awansetiawanind@gmail.com" rel="noopener noreferrer" target="_blank">
+         <i class="fas fa-envelope fa-2x">
+         </i>
+        </a>
+       </div>
+      </div>
+     </aside>
+
+     <section class="mt-1">
+      <h2 class="text-2xl font-semibold text-gray-900 mb-6">
+       About Me
+      </h2>
+      <div class="bg-gray-100 rounded-lg shadow-md p-6 max-w-150xl mx-auto text-gray-700 leading-relaxed">
+       <p>
+        I am a front-end developer with over 6 months of experience in web development.<br> I have worked on a variety of projects, from small personal websites and other projects.<br> 
           My areas of expertise include HTML, CSS, JavaScript, and testing web or apps. <!-- I am also familiar with various frameworks and libraries, such as React, Vue, and Angular.--><br> 
           When I am not coding, I enjoy listening to music, playing video games, and watching movies.<br>
-          My skills are:<br>
-            ●Designing <br>
-            ●Creative <br>
-            ●HTML Coding<br>
-            ●CSS Coding<br>
-            ●JS Coding</p>
-        </div>
-    </div>
-  <div id="line"></div>
-    <div class="Main" id="projects">
-      <h1>Projects</h1>
-      <!-- <button id="PjTog" onclick="TogglePcontent()">></button> -->
-      <div id="Pcontent" style="display: block;">
-        <h2>None for websites</h2>
-        <!-- <div class="project">
-            <h2>This Website</h2>
-            <p>This is a website I make for my personal usage.</p>
-            <a href="#home">View Project</a>
-        </div>
-        <div class="project">
-            <h2>This Website V1</h2>
-            <p>This is a website I used for testing.</p>
-            <a href="v1/index.html">View Project</a>
-        </div> -->
+       </p>
+       <p class="mt-4">
+        My skills are:<br>
+        ●Designing <br>
+        ●Creative <br>
+        ●HTML Coding<br>
+        ●CSS Coding<br>
+        ●JS Coding
+       </p>
       </div>
-    </div>
-  <div id="line"></div>
-    <div class="Main" id="social">
-      <h1>Social</h1>
-      <!-- <button id="ScTog" onclick="ToggleScontent()">></button> -->
-        <div id="Scontent" style="display: block;">
-          <div class="project">
-              <h2>Youtube Main</h2>
-              <p>This is my Main youtube channel, used for gaming and etc.</p>
-              <a href="https://www.youtube.com/@BeyondCas">Youtube</a>
+     </section>
+
+     <section class="md:w-2/3 mt-10 md:mt-0">
+
+      <section class="mt-16 mb-16">
+        <h2 class="text-2xl font-semibold text-gray-900 mb-6">
+         Portfolio
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto text-center">
+
+         <article class="bg-gray-100 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow cursor-pointer flex flex-col">
+          <img alt="s" class="w-full h-5 object-cover" height="50" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACoCAMAAABt9SM9AAAAe1BMVEUAAAD////7+/tEREQLCwvu7u7i4uIpKSl0dHTy8vL39/doaGjm5uZdXV3Pz8+7u7urq6s/Pz84ODgfHx/c3NxtbW1SUlJ7e3sVFRXS0tKMjIyFhYWVlZWbm5ulpaVkZGTExMRXV1cjIyMxMTHAwMC0tLRDQ0OAgIATExNy2obaAAAD4ElEQVR4nO3Za3uaMByGcUBBQbQesJ4PrXX1+3/CkfwTCMRd17Y6ndv9e9MQAzWPSQgaBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABwX71159Fv4e/TrTXqN2GYv/SnP38Jv342nPcPJ3OwvDRa6YPL8vff90MUcS1frau3/xEqWbIfOI17udM6Xq2ldpWWB9m8deHBKNVXKDb6cJjqc5J3dTBL9EH6+ke7dntx2JDaPmdVVbba2hnZi5qtY/1Cosv9xmWXo7pVrlsd5eCsymMpv9ypjzfTCisMZSS9NiujDz0+2mGFkaq9EtYp9a45M+eWo2liPoV79/XLvLBCXb31qsP85IcV7oKrYWWtZsOybmEuU05992N5Jn5YeiVa+WGl1chKFak8BtfCGnnnLutrrufyd/SA3n6RhLUezOdzM5o+ytpLe2iEeoWRsBJ9oqxBquyFNbQRjY65KY7L6p4UM8k5mj2iu18jYb3p8q7q/8D0y/ZV2diwct148+ORNaoDCj6dodWY25u7dvM2JKyhLvd1OS5Le+nQPnjbF7Z3vSqs19JBcry6ZslkPcuBWaoOQdVSW925nzchYcmGR3JRa0ni9NBMKpWhv8AHgR/Wm0wzux2Vl/VK6Nxjv92xjzcjYSVFKatmz1SKqV5W9vWkaoeV6ZDbYclYKuzh3hlne3vm7q6dvBX/bvhu56OZKuYmpm703qZUT99fCGtszyyCZ+SFpUbQi/Pxd029KvvTUKXVDusgw/LdHMrk3tavaOv7dvM22mHpRxB7EyzOg9nBGWUSVjwoNxqDs65Wd8Z2WF0n6iog/Rjl7OurJe2ZtMLSPew4FWnsvODus5Yyyt5tWM5+vHAGz1ACysp7qR2w4gn3pCas3aIvBb2WbEKfvnu5YZk729SGFecimdrdQpjstnYvrwas2bwVJsv+j9/U36ralPbrLnhPK+aJ2YSVjUors3z1GrsnZVJP4/r0ctJ1zd22M3Ev+VTqTakZIMHVsI66sb/AZ0E7rKgM69Ru9hlU39GMn/cbGiesN+mCvm31z83vWMzDiR+Wau2HVT0dOq3M3FQfhl3ohw/q829zHnfMgDIvnNZHJzC5d3lhHVXtlbCCjjMTIzW1T+ZUfR/oO8E9kzyMokjCmqhiVD4QVobbQgKTNT3oZVEti4uFri3CyK2eSNu1iSsd6w3XUS5upt7I+1dPYdJR5Kv3qS43f9WZzcdJ1cduxzG9NC5RsdXB62K9/RzKbxSX5ovLzpV/9W+YLp7tlwUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/73v3yUmylrRriYAAAAASUVORK5CYII=" width="600"/>
+          <div class="p-5 flex flex-col flex-grow">
+           <a href="/roblox.html" class="text-lg font-semibold text-blue-900 mb-2">
+            Roblox
+           </a>
           </div>
-              <!--<div class="project">
-                  <h3>Secondary Channel</h3>
-                  <p>This is my Secondary youtube channel, used for personal life.</p>
-                  <a href="https://www.youtube.com/channel/UCqXcCUJAhUj6oJ3Y_-xNzjg">Youtube</a>
-              </div>-->
-          <div class="project">
-              <h2>Itch.io</h2>
-              <p>This is my itch.io account.</p>
-              <a href="https://beyondcasual.itch.io">Itch</a>
+         </article>
+
+         <article class="bg-gray-100 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow cursor-pointer flex flex-col">
+          <img alt="rs" class="w-full h-5 object-cover" height="50" src="data:image/png;base64,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" width="600"/>
+          <div class="p-5 flex flex-col flex-grow">
+           <a href="https://github.com/vyrnz" class="text-lg font-semibold text-blue-900 mb-2">
+            Github
+           </a>
           </div>
-          <div class="project">
-            <h2>GitHub</h2>
-            <p>This is my GitHub account.</p>
-            <a href="https://github.com/vyrnz">GitHub</a>
+         </article>
+
+         <article class="bg-gray-100 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow cursor-pointer flex flex-col">
+          <img alt="e" class="w-full h-5 object-cover" height="50" src="data:image/png;base64,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" width="600"/>
+          <div class="p-5 flex flex-col flex-grow">
+           <a href="https://beyondcasual.itch.io" class="text-lg font-semibold text-blue-900 mb-2">
+            Itch.io
+           </a>
+          </div>
+         </article>
+
+         <article class="bg-gray-100 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow cursor-pointer flex flex-col">
+          <img alt="e" class="w-full h-5 object-cover" height="50" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAACfCAMAAABX0UX9AAAAk1BMVEXMIB7////RMTDKAADMHhzKGxj99fTQPDvOISDLGBXstbT119fLExDddXX++PjLAADWV1bww8LkmJfXUE/TSEf34uLturn13t3mn5712djKExDwxsXkk5PJDAbOJyX45+byzs3aZWTRNzfqrazhhIP67u3ff3/cbWzeeXnmnp3jjo3VU1LPKyrrr6/TQ0LUS0rZZmZ2Q/pgAAAIu0lEQVR4nO2d6WLyKhCGVSAmiom1rlE07lat9v6v7jBANmu/xq2W03n+NLHRhteBGYYhLZUQBEEQBEEQBEEQBEEQBEEQBEEQBEEQBEEQBEEQBEEQBEEQBEEQBEEQBEEeBn32DdgApdSThFwoCCEB0QQnkBR9LefwTvkBz27Dk6Ch1ETMjrtdc73abketVqtW69YlA6CXR71Wr0fdWk1eONqOVo1mc/da4VJZzv6csdLAW/ejzmTpl6/H95eTTjRvUMKe3Z4fhXLeX96g2wnLeYk/u0k/CWneUTzAmZK/03/J5r7iAds/o59o3F+9cnlFnt2un4HNJo+Qz6n+Cf9BRf8R6pXLteDZTfsJWOXObiPGDvNT8wQZ78enLHf6PfwBfkOzFY9p8T2hs9cj4GrBqKvOXiuF9RPdR8kX/X75qDfV97rQgapY6NOpV/QDxo5+Q+UTzTOSOFXqul4xg5W999cHL9TtqHvt6jiBaFvq8KI37hmRdpydELbPSuJRWjTS+bBg7kHm6lYnarijrg5C3gsHXXylm9r8ZK7e8bxFyfcUlO/NgtDZ9F7/FdofN3kdFn27Uf8h8tkQulCqDU75OTP0LVnhmMH0dpCPJtk6OKK3y1cXv9/6SuRd3esQ+mswVMfd4r2GRLqpx0CIUGj9qAc5UHJ+7LtAvl5ogXyhbsxkT+XQp0Pg4n2XEhM0O4AfwXcgB1B15twq38SGtCkbawWmITVu1CmeMqdBbs5R1/KdE+4K+ZyZBfKVyIu62T4pET19HcZ+9/ulB8py6eXBXeUrH4tGn8/ETLsiTkldHa0EKMcEGY9dIhJ/wNXKDpwxvcYj+xY75Np7X+uzQz66Vxa0lBGtOvBnDAa12eil0+kNR1Vji2LUBQ5MalaDo750jN7uS/mcl6FEeZYeHL50cvJ1N9NGLWO6Tnex2az6vezHfY6GfiPGe67JVJuhlIWSbTyoOdtA2R/RXnnnxREd9NR/yNdRq5GvcDhS1vqekW8wDUTIg3Vip91qIDjnxF1kBtNGYRf2TMRW3ezchMAQAZJRRpS5sj8zRMrwmrX9WKt4ynxOPuj12hm1IKYktVi+cFN31ayQkjhXuA1MkoeKQ5p93Vowa4N8sbamYAA//DYr8bwqG9X8s/KtcxcOCsnHdjMjFqvo7tsPUi8lmkmXHv3+nEsJjGCglVH3PZCT+nCQU6UDrT0r30m2r5j1ybhaSB9E4S+rcaNTglc96Y1Aw8QkIRiwAdJSd6vnX28iGdGilpZMxdHn5VtdIR/19q1un6ZSjeBt4bTb3crvibJqbH6WyJcLP6S7E1rOdznea0uA0e+sfCS/0FGw87Yn5jMph0m2L92RvAd410JGQ3H8ZI18NEiH655L4zzAQTrZg1JqKIrJV9R1wIsTcOjhFI4g1a39l/oAMwu3R7447aSNggo99EFP0jM6aOAd5VNh8xIGOmX3ECnJsDIx3zjlbYt8pfAjUUDGWpTr4JVeLF+xzstP5FOZ7ox8YezObZHPqASNqjBpfdfKV8z6svJV/hfyCeNiyy9yUvvT8r2n8vVgTm2dfCURx2+w4na9fJd3XpCvpkyuEcmJ8RzkS6Yy1sgXx1qOShf8sPUp+SBq1lkcC+WjXKcNIvj2nyNfioXymVBPZQdQvosJtHzvl8r3djf5wrTYPq5PsEc+Y321C+UT2cTWTa6DN4YvMZGt8l1qfVdlXM7Kd/JF2CnfpdYX3kO+96/ka9km36XWd5Jtvrjz0lP5HMf3/TiFb0e6FLjS+rx8FdrF1kdPOm/Pnc1mlXglbmNFsh64Vr5/LBUV6rywTpCZ8/YIY0zEk7YPK1bagJx8JuPyVcLKy8iXrwO6c8bFinVeRd76dLqXJ1UvvVJWPjFNTI3ti1jfCtbVPuX7eCyfqqTS6dIBSQ5tlE/XRaqWlstNTrke217SZP3RCyudRCvKv6xxSeWL1ELxabYZSkF0bTBUJxmhlSEmyduDbfLpCQDX6d76mIx1BCt7HzXyrcihl2qVVFh97ryTMVjX0SlHVFULZpaKxnO/7H+EyV+aQiUal79fthks0esF+fJyb0OJkCJnfXH+ZRkZcWAtx0zr/HhKYOTrfGV9KnkjfctUsBP5SozMGge1UK7X+Lo6UdFc7z2wyKoJXDoX7I94Mjnro+I9K4rJobaS82WqFXnJXpgrEdqprud5zDuCZhn5xpSFes+zXud1mipC8UK99hv33UHhAvWnk7M+6RGy6+RLNQalEfJEl6Zo+WpfyrfQtbWMvPXzntdbL0z5qjfTZj7Yx9UslJKk/urFmqg5b32yXYdUv96rahv1zJjXaeu+rVfFchmrOqGUMuoY41FdUV7RgpeNfHpjwkLVtLAgFr9eJWoTB/VIIykbmltQGm4Qcx/qaeNJOvXGZn+4Mx8b/+ftYDXYn1fEcQnXDnPrEloxqFWJd8qUuy6UWEk/0IKXA1NhRSnkGbpVQoJ9OkY4owpUZIljZpPSQrjPE+QywGoYSwt1KBPuR2v+Nt2LZG+PN/7Yrg+ElVh6bVpRkZK8shwO659+G19QH0a5Mkp/MBxGOUe0syZuMZsJskM1ZZ4gImSZF2ko9JBvLqaZLn1/Oq41nuN6xNv3QlzHaQ7/f4n3+ij5PqyoLb0RyoePUW9gT9B8C3z9vRTX0LAm2XcTVNS+1+JyLNgMfRcoG0ffq3Epvb0NTzK4B9Rz774hv04tivluhZLNXZ/l4o8s2Ah9T4RY1ya3PD0txamPKn9MPfX4PnFobkb9blSv93oT2JPqK/5lZeoSx1l2OoPBIOrOR6NVs0rE738ExAOQszwu1KMiiXDdWfUgOR7bU8lmBSwUq4U62Uyn62a73ZYXVfcuj58kyb0/qV0OnX8AIFnKecg5bFjTz+TUh5x7ofylhjI9gUYQBEEQBEEQBEEQBEEQBEEQBEEQBEEQBEEQBEEQBEEQBEEQBEEQBEF+G/T8z1tO73nVr769z/8CHCnOfzy0w8bzJsLuAAAAAElFTkSuQmCC" width="600"/>
+          <div class="p-5 flex flex-col flex-grow">
+           <a href="https://www.youtube.com/@BeyondCas" class="text-lg font-semibold text-blue-900 mb-2">
+            Youtube
+           </a>
+          </div>
+         </article>
+
         </div>
-          <div class="project">
-              <h2>Roblox Main</h2>
-              <p>This is my Main roblox account.<br> Most of the games I've created have been made since I was 12 years old.</p>
-              <a href="https://www.roblox.com/users/1333361493/profile">Roblox</a>
-          </div>
-              <div class="project">
-              <h2>Roblox Secondary</h2>
-              <p>This is my Secondary roblox account.<br> Most of the games I've created have been made since I was 13 years old.</p>
-              <a href="https://www.roblox.com/users/2211804375/profile">Roblox</a>
-          </div>
-        </div>
+       </section>
+
+     </section>
+
+    </section>
+
+  </main>
+
+
+  <footer class="bg-blue-50 border-t border-gray-200 py-4 mt-32">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center text-gray-600 text-sm">
+    <p>
+    From Indonesia
+    </p>
+    <div class="flex space-x-6 mt-4 md:mt-0">
+     <a aria-label="ArtStation profile" class="hover:text-gray-900 transition" href="https://www.artstation.com/Edsel" rel="noopener noreferrer" target="_blank">
+      <i class="fab fa-artstation fa-lg">
+      </i>
+     </a>
+     <a aria-label="Twitter profile" class="hover:text-gray-900 transition" href="https://twitter.com/Edsel" rel="noopener noreferrer" target="_blank">
+      <i class="fab fa-twitter fa-lg">
+      </i>
+     </a>
+     <a aria-label="Instagram profile" class="hover:text-gray-900 transition" href="https://www.instagram.com/Edsel" rel="noopener noreferrer" target="_blank">
+      <i class="fab fa-instagram fa-lg">
+      </i>
+     </a>
+     <a aria-label="LinkedIn profile" class="hover:text-gray-900 transition" href="https://www.linkedin.com/in/Edsel" rel="noopener noreferrer" target="_blank">
+      <i class="fab fa-linkedin fa-lg">
+      </i>
+     </a>
     </div>
-    <div id="line"></div>
-    <div class="Main" id="portfolio">
-      <h1>Portfolio</h1>
-      <div class="project">
-        <h2>Portfolio</h2>
-        <a href="images/CV.pdf">Download</a>
-      </div>
-    </div>
-    <div id="line"></div>  
+   </div>
+  </footer>
 
-</body>
+  
+  <script>
+   const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
 
-
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+ </body>
 </html>
-
