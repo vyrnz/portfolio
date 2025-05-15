@@ -16,10 +16,33 @@
    a:hover {
      color: #FF8C00; /* darker orange on hover */
    }
+
+  /* Fade in and fade out animations */
+  .fade-in {
+    opacity: 0;
+    animation: fadeInAnimation 0.5s forwards;
+  }
+
+  .fade-out {
+    opacity: 1;
+    animation: fadeOutAnimation 0.5s forwards;
+  }
+
+  @keyframes fadeInAnimation {
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeOutAnimation {
+    to {
+      opacity: 0;
+    }
+  }
   </style>
  </head>
 
- <body class="bg-gray-200 text-gray-900">
+ <body class="bg-gray-200 text-gray-900 fade-in">
 
   <header class="border-b border-gray-200 sticky top-0 z-30" style="background-color: rgba(239, 246, 255, 0.8);">
 
@@ -200,6 +223,32 @@
 
     mobileMenuButton.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
+    });
+
+    // Fade in on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      document.body.classList.remove('fade-out');
+      document.body.classList.add('fade-in');
+    });
+
+    // Fade out on link click and delay navigation
+    document.querySelectorAll('a[href]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        if (href && !href.startsWith('#') && !href.startsWith('javascript:')) {
+          e.preventDefault();
+          document.body.classList.remove('fade-in');
+          document.body.classList.add('fade-out');
+          setTimeout(() => {
+            window.location.href = href;
+          }, 500); // match fade-out duration
+        }
+      });
+    });
+
+    // Fade out on page unload (for other unload scenarios)
+    window.addEventListener('beforeunload', () => {
+      document.body.classList.add('fade-out');
     });
   </script>
  </body>
