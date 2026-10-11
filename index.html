@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>E-Station</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600;700;800&family=VT323&display=swap" rel="stylesheet"/>
+  
+  <style>
+    /* Strictly sharp corners everywhere for authentic 90s feel */
+    *, *::before, *::after {
+      border-radius: 0px !important;
+    }
+
+    :root {
+      --win-blue: #000080;
+      --win-blue-light: #1040b0;
+      --win-blue-accent: #0055ff;
+      --bg-pale: #f0f4fa;
+      --card-white: #ffffff;
+      --border-dark: #001f54;
+      --border-blue: #0a369d;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-pale);
+      color: #0b192c;
+      /* Subtle retro grid pattern */
+      background-image: 
+        linear-gradient(to right, rgba(0, 50, 160, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 50, 160, 0.05) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    .font-mono-retro {
+      font-family: 'Space Mono', monospace;
+    }
+
+    .font-pixel {
+      font-family: 'VT323', monospace;
+    }
+
+    /* 90s Sharp Box Shadow */
+    .retro-shadow {
+      box-shadow: 4px 4px 0px #001f54;
+    }
+
+    .retro-shadow-sm {
+      box-shadow: 2px 2px 0px #001f54;
+    }
+
+    .retro-shadow-lg {
+      box-shadow: 6px 6px 0px #001f54;
+    }
+
+    .retro-shadow-blue {
+      box-shadow: 4px 4px 0px #0055ff;
+    }
+
+    /* Interactive Sharp Buttons */
+    .btn-retro {
+      position: relative;
+      background-color: #ffffff;
+      color: #000080;
+      border: 2px solid #000080;
+      box-shadow: 3px 3px 0px #000080;
+      font-weight: 700;
+      transition: all 0.1s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .btn-retro:hover {
+      background-color: #000080;
+      color: #ffffff;
+      box-shadow: 4px 4px 0px #002244;
+      transform: translate(-1px, -1px);
+    }
+
+    .btn-retro:active {
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0px #000080;
+    }
+
+    .btn-retro-primary {
+      background-color: #000080;
+      color: #ffffff;
+      border: 2px solid #000080;
+      box-shadow: 3px 3px 0px #001f54;
+    }
+
+    .btn-retro-primary:hover {
+      background-color: #1040b0;
+      color: #ffffff;
+      border-color: #1040b0;
+      box-shadow: 4px 4px 0px #000080;
+    }
+
+    /* Classic Windows 95/98 Blue Window Titlebar */
+    .win-titlebar {
+      background: linear-gradient(90deg, #000080 0%, #1084d0 100%);
+      color: #ffffff;
+      padding: 4px 8px;
+      font-weight: 700;
+      font-size: 0.875rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid #001f54;
+      user-select: none;
+    }
+
+    .win-btn {
+      width: 18px;
+      height: 18px;
+      background: #e0e8f5;
+      color: #000080;
+      border-top: 1px solid #ffffff;
+      border-left: 1px solid #ffffff;
+      border-right: 1px solid #708090;
+      border-bottom: 1px solid #708090;
+      font-size: 11px;
+      font-weight: bold;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .win-btn:active {
+      border-top: 1px solid #708090;
+      border-left: 1px solid #708090;
+      border-right: 1px solid #ffffff;
+      border-bottom: 1px solid #ffffff;
+    }
+
+    /* Retro Scanline effect for banner */
+    .scanlines {
+      position: relative;
+    }
+    .scanlines::after {
+      content: " ";
+      display: block;
+      position: absolute;
+      top: 0; left: 0; bottom: 0; right: 0;
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.15) 50%);
+      background-size: 100% 4px;
+      z-index: 10;
+      pointer-events: none;
+      opacity: 0.6;
+    }
+
+    /* Page fade animations */
+    .fade-in {
+      opacity: 0;
+      animation: fadeInAnimation 0.4s forwards;
+    }
+    .fade-out {
+      opacity: 1;
+      animation: fadeOutAnimation 0.4s forwards;
+    }
+    @keyframes fadeInAnimation {
+      to { opacity: 1; }
+    }
+    @keyframes fadeOutAnimation {
+      to { opacity: 0; }
+    }
+
+    /* Retro ticker marquee */
+    @keyframes ticker {
+      0% { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(-50%, 0, 0); }
+    }
+    .marquee-wrapper {
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .marquee-content {
+      display: inline-block;
+      animation: ticker 25s linear infinite;
+    }
+  </style>
+</head>
+
+<body class="fade-in min-h-screen flex flex-col">
+
+  <!-- TOP 90s MARQUEE TICKER -->
+  <aside class="bg-[#000080] text-white border-b-2 border-[#001f54] text-xs font-mono-retro py-1.5 px-4 overflow-hidden" aria-label="Status ticker">
+    <div class="marquee-wrapper">
+      <div class="marquee-content flex space-x-8">
+        <span>ROBLOX BUILDER &amp; DESIGNER</span>
+        <span>★</span>
+        <span>AI WERE USED TO HELP NOT FULLY AUTOMATED</span>
+        <span>★</span>
+        <span>COMMISSIONS: <span class="bg-blue-300 text-[#000080] px-1 font-bold">AVAILABLE</span></span>
+        <span>★</span>
+        <span>INDONESIA (GMT+7)</span>
+        <span>★</span>
+        <span>ROBLOX BUILDER &amp; DESIGNER</span>
+        <span>★</span>
+        <span>VIBE CODER</span>
+        <span>★</span>
+        <span>COMMISSIONS: <span class="bg-blue-300 text-[#000080] px-1 font-bold">AVAILABLE</span></span>
+        <span>★</span>
+        <span>INDONESIA (GMT+7)</span>
+        <span>★</span>
+        <span>AI WERE USED TO HELP NOT FULLY AUTOMATED</span>
+        <span>★</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- RETRO HEADER / NAVBAR -->
+  <header class="sticky top-0 z-40 bg-white border-b-2 border-[#000080] retro-shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        
+        <!-- Logo / Title -->
+        <a class="flex items-center space-x-3 group" href="index.html">
+          <div class="w-10 h-10 bg-[#000080] text-white border-2 border-[#001f54] flex items-center justify-center font-bold font-mono-retro text-xl shadow-[2px_2px_0px_#1084d0]">
+            E:
+          </div>
+          <div class="flex flex-col">
+            <span class="text-xl font-extrabold tracking-tight text-[#000080] flex items-center gap-1.5 font-mono-retro">
+              E-STATION<span class="text-xs px-1.5 py-0.5 bg-blue-100 text-[#000080] border border-[#000080]">vyrnz</span>
+            </span>
+            <span class="text-[10px] text-gray-500 font-mono-retro tracking-widest uppercase">portfolio</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Tabs -->
+        <nav aria-label="Main Navigation" class="hidden md:flex items-center space-x-1 font-mono-retro text-sm">
+          <a href="index.html" class="px-3 py-1.5 bg-[#000080] text-white border-2 border-[#000080] font-bold">
+            [01] Home
+          </a>
+          <a href="roblox.html" class="px-3 py-1.5 bg-white text-[#000080] border-2 border-[#000080] hover:bg-blue-50 font-bold transition">
+            [02] Roblox Works
+          </a>
+          <a href="https://github.com/vyrnz" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 bg-white text-[#000080] border-2 border-[#000080] hover:bg-blue-50 font-bold transition">
+            [03] GitHub
+          </a>
+        </nav>
+
+        <!-- System Clock & Status Indicator -->
+        <div class="hidden lg:flex items-center space-x-3 font-mono-retro text-xs">
+          <div class="bg-blue-50 border-2 border-[#000080] px-3 py-1.5 flex items-center space-x-2">
+            <span class="w-2.5 h-2.5 bg-yellow-500 inline-block animate-pulse"></span>
+            <span class="font-bold text-[#000080]">STATUS: VARIES</span>
+          </div>
+          <div class="bg-white border-2 border-[#000080] px-3 py-1.5 text-gray-700 font-bold" id="retro-clock">
+            --:--:--
+          </div>
+        </div>
+
+        <!-- Mobile Menu Hamburger Button -->
+        <div class="md:hidden flex items-center">
+          <button id="mobile-menu-button" aria-label="Toggle navigation menu" class="btn-retro px-3 py-1.5 text-sm">
+            <i class="fas fa-bars"></i> MENU
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Navigation -->
+    <nav id="mobile-menu" aria-label="Mobile Navigation" class="hidden md:hidden bg-white border-t-2 border-[#000080] p-4 space-y-2 font-mono-retro text-sm">
+      <a href="index.html" class="block p-2 bg-[#000080] text-white font-bold border border-[#000080]">
+        [01] Home (index.html)
+      </a>
+      <a href="roblox.html" class="block p-2 bg-blue-50 text-[#000080] font-bold border border-[#000080] hover:bg-blue-100">
+        [02] Roblox Portfolio (roblox.html)
+      </a>
+      <a href="https://github.com/vyrnz" target="_blank" rel="noopener noreferrer" class="block p-2 bg-white text-[#000080] font-bold border border-[#000080] hover:bg-blue-50">
+        [03] GitHub Profile
+      </a>
+    </nav>
+  </header>
+
+  <!-- MAIN WRAPPER -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full space-y-8">
+
+    <!-- HERO WINDOW: Windows 95/98 Style App Window -->
+    <section class="bg-white border-2 border-[#001f54] retro-shadow-lg" aria-label="Welcome Window">
+      
+      <!-- Window Titlebar -->
+      <div class="win-titlebar font-mono-retro">
+        <div class="flex items-center space-x-2">
+          <i class="fas fa-desktop text-white text-xs"></i>
+          <span class="tracking-wide">E-Station_Portal.exe [Active Session - vyrnz]</span>
+        </div>
+        <div class="flex items-center space-x-1">
+          <span class="win-btn" title="Minimize">_</span>
+          <span class="win-btn" title="Maximize">□</span>
+          <span class="win-btn" title="Close">✕</span>
+        </div>
+      </div>
+
+      <!-- Window Menu Bar -->
+      <div class="bg-[#f0f4fa] border-b-2 border-[#001f54] px-3 py-1 text-xs font-mono-retro text-gray-700 flex space-x-4">
+        <span class="cursor-pointer hover:bg-[#000080] hover:text-white px-1">File</span>
+        <span class="cursor-pointer hover:bg-[#000080] hover:text-white px-1">Edit</span>
+        <span class="cursor-pointer hover:bg-[#000080] hover:text-white px-1">View</span>
+        <span class="cursor-pointer hover:bg-[#000080] hover:text-white px-1">Roblox</span>
+        <span class="cursor-pointer hover:bg-[#000080] hover:text-white px-1">Help</span>
+      </div>
+
+      <!-- Banner Area with Sharp Borders & Retro Scanlines -->
+      <div class="relative border-b-2 border-[#001f54] scanlines max-h-72 overflow-hidden bg-slate-900">
+        <img src="img/33.webp" alt="E-Station Banner" class="w-full h-56 md:h-72 object-cover object-center filter contrast-105"/>
+        <div class="absolute bottom-3 left-4 bg-white/95 border-2 border-[#000080] px-3 py-1 text-xs font-mono-retro font-bold text-[#000080] retro-shadow-sm backdrop-blur-sm">
+          DIR: C:\USERS\VYRNZ\PORTFOLIO\IMG\PROFILE.PNG
+        </div>
+      </div>
+
+      <!-- Hero Profile Body -->
+      <div class="p-6 md:p-8 bg-white">
+        <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
+          
+          <!-- Sharp Avatar Box -->
+          <div class="flex-shrink-0 flex flex-col items-center">
+            <div class="relative">
+              <div class="w-40 h-40 bg-[#000080] border-4 border-[#000080] retro-shadow overflow-hidden bg-white">
+                <img 
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3DpMzGvik_8f7kUGgxvx7S44vK3LY8tZcpw&s" 
+                  alt="vyrnz avatar" 
+                  class="w-full h-full object-cover filter contrast-110"
+                />
+              </div>
+              <div class="absolute -bottom-2 -right-2 bg-[#000080] text-white border-2 border-white px-2 py-0.5 text-[11px] font-mono-retro font-bold">
+                ?????
+              </div>
+            </div>
+            
+            <div class="mt-4 text-center">
+              <span class="inline-block bg-blue-100 text-[#000080] border-2 border-[#000080] px-2.5 py-1 text-xs font-mono-retro font-bold">
+                ID: vyrnz
+              </span>
+            </div>
+          </div>
+
+          <!-- Hero Details & Bio Highlights -->
+          <div class="flex-grow text-center md:text-left space-y-4">
+            
+            <div class="space-y-1">
+              <div class="inline-flex items-center gap-2 bg-blue-50 border border-blue-300 px-2 py-0.5 text-xs font-mono-retro text-[#000080]">
+                <span>LOCATION: INDONESIA</span>
+                <span>•</span>
+                <span>OPEN FOR WORK</span>
+              </div>
+              <h1 class="text-3xl md:text-5xl font-extrabold text-[#000080] tracking-tight">
+                Freelancer &amp; Creator
+              </h1>
+              <p class="text-lg md:text-xl font-bold text-gray-700 font-mono-retro">
+                Roblox Builder &amp; Designer <span class="text-blue-500">/</span> Vibe Coder
+              </p>
+            </div>
+
+            <p class="text-gray-600 max-w-2xl leading-relaxed text-sm md:text-base">
+              Ignore this line, this is just a placeholder. Im too lazy to write a proper description.
+            </p>
+
+            <!-- Retro Action Buttons -->
+            <div class="pt-2 flex flex-wrap gap-3 justify-center md:justify-start font-mono-retro text-xs md:text-sm">
+              <a href="roblox.html" class="btn-retro btn-retro-primary px-4 py-2.5">
+                <i class="fas fa-cube"></i> ROBLOX SHOWCASE (50+)
+              </a>
+              <a href="https://discord.gg/BVqn7aqp" target="_blank" rel="noopener noreferrer" class="btn-retro px-4 py-2.5">
+                <i class="fab fa-discord text-indigo-700"></i> DISCORD
+              </a>
+              <a href="https://github.com/vyrnz" target="_blank" rel="noopener noreferrer" class="btn-retro px-4 py-2.5">
+                <i class="fab fa-github"></i> GITHUB
+              </a>
+              <a href="mailto:awansetiawanind@gmail.com" class="btn-retro px-4 py-2.5">
+                <i class="fas fa-envelope text-red-600"></i> SEND EMAIL
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- TWO COLUMN LAYOUT: ABOUT ME (LEFT) & SYSTEM OVERVIEW (RIGHT) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      
+      <!-- LEFT WINDOW: about_me.txt -->
+      <section class="lg:col-span-7 bg-white border-2 border-[#001f54] retro-shadow" aria-label="About Me Section">
+        
+        <div class="win-titlebar font-mono-retro">
+          <div class="flex items-center space-x-2">
+            <i class="fas fa-file-alt text-white text-xs"></i>
+            <span>C:\DOCUMENTS\ABOUT_ME.TXT</span>
+          </div>
+          <div class="flex items-center space-x-1">
+            <span class="win-btn">_</span>
+            <span class="win-btn">□</span>
+            <span class="win-btn">✕</span>
+          </div>
+        </div>
+
+        <div class="p-6 space-y-6">
+          
+          <div class="border-l-4 border-[#000080] pl-4 py-1 bg-blue-50/50">
+            <h2 class="text-xl font-bold text-[#000080] font-mono-retro uppercase tracking-wide">
+              // Profile Narrative
+            </h2>
+          </div>
+
+          <div class="text-gray-700 space-y-4 leading-relaxed text-sm md:text-base">
+            <p>
+              I am a front-end developer with hands-on experience in building structured, responsive user interfaces and testing web platforms. I create both web applications and 3D virtual spaces that prioritize style, performance, and user engagement.
+            </p>
+            <p>
+              Beyond coding, I've spent extensive time designing detailed game spaces, structural models, and environment atmospheres inside Roblox Studio. When I'm away from my keyboard, you'll usually find me listening to music, diving into video games, or watching movies.
+            </p>
+            <p>
+              Again ignore all the above, the AI changed few stuff. I no like it, too lazy to fix it.
+            </p>
+          </div>
+
+          <!-- Skills Grid -->
+          <div class="space-y-3 pt-2 border-t-2 border-dashed border-blue-200">
+            <h3 class="text-xs font-bold text-[#000080] uppercase tracking-wider font-mono-retro">
+              [ACTIVE SKILLSETS &amp; CAPABILITIES]
+            </h3>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5 font-mono-retro text-xs">
+              
+              <div class="bg-blue-50 border-2 border-[#000080] p-2 flex items-center space-x-2">
+                <i class="fab fa-html5 text-orange-600 text-sm"></i>
+                <span class="font-bold text-[#000080]">HTML5 Code</span>
+              </div>
+
+              <div class="bg-blue-50 border-2 border-[#000080] p-2 flex items-center space-x-2">
+                <i class="fab fa-css3-alt text-blue-600 text-sm"></i>
+                <span class="font-bold text-[#000080]">CSS</span>
+              </div>
+
+              <div class="bg-blue-50 border-2 border-[#000080] p-2 flex items-center space-x-2">
+                <i class="fab fa-js text-yellow-500 text-sm"></i>
+                <span class="font-bold text-[#000080]">Vibe Coding</span>
+              </div>
+
+              <div class="bg-blue-50 border-2 border-[#000080] p-2 flex items-center space-x-2">
+                <i class="fas fa-cubes text-purple-600 text-sm"></i>
+                <span class="font-bold text-[#000080]">Roblox Studio</span>
+              </div>
+
+              <div class="bg-blue-50 border-2 border-[#000080] p-2 flex items-center space-x-2">
+                <i class="fas fa-layer-group text-emerald-600 text-sm"></i>
+                <span class="font-bold text-[#000080]">Level Design</span>
+              </div>
+
+              <div class="bg-blue-50 border-2 border-[#000080] p-2 flex items-center space-x-2">
+                <i class="fas fa-vial text-pink-600 text-sm"></i>
+                <span class="font-bold text-[#000080]">QA &amp; Testing</span>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Quick Specs Notice -->
+          <div class="bg-white border-2 border-[#000080] p-3 text-xs font-mono-retro flex items-center justify-between">
+            <span class="text-gray-600">ROBLOX BUILDING/DESIGNER</span>
+            <span class="bg-[#000080] text-white px-2 py-0.5 font-bold">READY FOR HIRE</span>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- RIGHT WINDOW: CONNECT & QUICK ACCESS -->
+      <section class="lg:col-span-5 bg-white border-2 border-[#001f54] retro-shadow flex flex-col justify-between" aria-label="Quick Connect Window">
+        
+        <div>
+          <div class="win-titlebar font-mono-retro">
+            <div class="flex items-center space-x-2">
+              <i class="fas fa-network-wired text-white text-xs"></i>
+              <span>CONNECT.EXE \\ SOCIAL_LINKS</span>
+            </div>
+            <div class="flex items-center space-x-1">
+              <span class="win-btn">_</span>
+              <span class="win-btn">□</span>
+              <span class="win-btn">✕</span>
+            </div>
+          </div>
+
+          <div class="p-6 space-y-4">
+            
+            <p class="text-xs font-mono-retro text-gray-500 uppercase tracking-wide">
+              SOCIAL MEDIA &amp; INQURIES:
+            </p>
+
+            <!-- Links list with sharp 90s button style -->
+            <div class="space-y-3 font-mono-retro text-sm">
+              
+              <!-- Discord -->
+              <a href="https://discord.gg/BVqn7aqp" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3 bg-white border-2 border-[#000080] hover:bg-blue-50 transition group retro-shadow-sm">
+                <div class="flex items-center space-x-3">
+                  <div class="w-8 h-8 bg-[#5865F2] text-white flex items-center justify-center font-bold">
+                    <i class="fab fa-discord"></i>
+                  </div>
+                  <div>
+                    <span class="font-bold text-[#000080] block">Discord Server</span>
+                    <span class="text-xs text-gray-500">discord.gg/BVqn7aqp</span>
+                  </div>
+                </div>
+                <span class="text-xs font-bold text-[#000080] group-hover:translate-x-1 transition-transform">[JOIN ➔]</span>
+              </a>
+
+              <!-- YouTube -->
+              <a href="https://www.youtube.com/@BeyondCas" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3 bg-white border-2 border-[#000080] hover:bg-blue-50 transition group retro-shadow-sm">
+                <div class="flex items-center space-x-3">
+                  <div class="w-8 h-8 bg-[#FF0000] text-white flex items-center justify-center font-bold">
+                    <i class="fab fa-youtube"></i>
+                  </div>
+                  <div>
+                    <span class="font-bold text-[#000080] block">YouTube Channel</span>
+                    <span class="text-xs text-gray-500">@BeyondCas</span>
+                  </div>
+                </div>
+                <span class="text-xs font-bold text-[#000080] group-hover:translate-x-1 transition-transform">[WATCH ➔]</span>
+              </a>
+
+              <!-- GitHub -->
+              <a href="https://github.com/vyrnz" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3 bg-white border-2 border-[#000080] hover:bg-blue-50 transition group retro-shadow-sm">
+                <div class="flex items-center space-x-3">
+                  <div class="w-8 h-8 bg-[#24292e] text-white flex items-center justify-center font-bold">
+                    <i class="fab fa-github"></i>
+                  </div>
+                  <div>
+                    <span class="font-bold text-[#000080] block">GitHub Profile</span>
+                    <span class="text-xs text-gray-500">github.com/vyrnz</span>
+                  </div>
+                </div>
+                <span class="text-xs font-bold text-[#000080] group-hover:translate-x-1 transition-transform">[VIEW ➔]</span>
+              </a>
+
+              <!-- Email -->
+              <a href="mailto:awansetiawanind@gmail.com" class="flex items-center justify-between p-3 bg-white border-2 border-[#000080] hover:bg-blue-50 transition group retro-shadow-sm">
+                <div class="flex items-center space-x-3">
+                  <div class="w-8 h-8 bg-[#EA4335] text-white flex items-center justify-center font-bold">
+                    <i class="fas fa-envelope"></i>
+                  </div>
+                  <div>
+                    <span class="font-bold text-[#000080] block">Email Direct</span>
+                    <span class="text-xs text-gray-500">awansetiawanind@gmail.com</span>
+                  </div>
+                </div>
+                <span class="text-xs font-bold text-[#000080] group-hover:translate-x-1 transition-transform">[SEND ➔]</span>
+              </a>
+
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Retro Badge Box -->
+        <div class="p-4 bg-blue-50 border-t-2 border-[#001f54] text-xs font-mono-retro space-y-2">
+          <div class="flex items-center justify-between text-gray-600">
+            <span>VISITOR COUNTER:</span>
+            <span class="bg-[#000080] text-yellow-300 font-bold px-2 py-0.5 tracking-widest text-sm">#000067</span>
+          </div>
+          <div class="text-[11px] text-gray-500">
+            SECURE CONNECTION • NO FLOCKS CAMERA • 67 VERY FUNNY
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+
+    <!-- PORTFOLIO SHOWCASE EXPLORER WINDOW -->
+    <section class="bg-white border-2 border-[#001f54] retro-shadow-lg" aria-label="Projects Explorer">
+      
+      <!-- Explorer Titlebar -->
+      <div class="win-titlebar font-mono-retro">
+        <div class="flex items-center space-x-2">
+          <i class="fas fa-folder-open text-white text-xs"></i>
+          <span>EXPLORER.EXE :: C:\PORTFOLIO\FEATURED_PROJECTS</span>
+        </div>
+        <div class="flex items-center space-x-1">
+          <span class="win-btn">_</span>
+          <span class="win-btn">□</span>
+          <span class="win-btn">✕</span>
+        </div>
+      </div>
+
+      <!-- Address / Path bar -->
+      <div class="bg-blue-50 border-b-2 border-[#001f54] p-2 flex items-center space-x-2 text-xs font-mono-retro">
+        <span class="font-bold text-[#000080]">Address:</span>
+        <div class="flex-grow bg-white border border-[#000080] px-2 py-1 text-gray-700 flex items-center justify-between">
+          <span>https://vyrnz.github.io/portfolio/</span>
+          <i class="fas fa-globe text-blue-500 text-xs"></i>
+        </div>
+        <button onclick="window.location.reload()" class="btn-retro px-2 py-1 text-xs">
+          <i class="fas fa-sync-alt"></i> Refresh
+        </button>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="p-6 md:p-8">
+        <div class="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b-2 border-dashed border-blue-200 pb-4">
+          <div>
+            <h2 class="text-2xl font-extrabold text-[#000080] tracking-tight font-mono-retro">
+              [DIRECTORY: 4 ENTRIES]
+            </h2>
+            <p class="text-xs text-gray-500 font-mono-retro mt-1">
+              Wow, good work.. this is very useless -vyrnz
+            </p>
+          </div>
+          <a href="roblox.html" class="btn-retro btn-retro-primary px-3 py-1.5 text-xs font-mono-retro">
+            <i class="fas fa-external-link-alt"></i> Full Roblox Gallery \\ 50+ SHOWCASE
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          <!-- Card 1: Roblox Works -->
+          <article class="bg-white border-2 border-[#000080] retro-shadow-sm flex flex-col group hover:border-[#1084d0] transition-colors">
+            <div class="win-titlebar text-[11px] py-1">
+              <span>PROJECT_404.RBLX</span>
+              <i class="fas fa-cube"></i>
+            </div>
+            <div class="h-40 overflow-hidden border-b-2 border-[#000080] relative bg-slate-900">
+              <img src="img/DaTown (1).webp" alt="Roblox Cityscape" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"/>
+              <div class="absolute bottom-2 left-2 bg-[#000080] text-white text-[10px] font-mono-retro px-1.5 py-0.5 font-bold">
+                50+ BUILDS
+              </div>
+            </div>
+            <div class="p-4 flex flex-col flex-grow justify-between space-y-4">
+              <div>
+                <span class="text-[10px] font-mono-retro font-bold text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 inline-block mb-1">
+                  ROBLOX STUDIO
+                </span>
+                <h3 class="text-lg font-bold text-[#000080] group-hover:text-blue-600 transition">
+                  Roblox Portfolio
+                </h3>
+                <p class="text-xs text-gray-600 mt-2 leading-relaxed">
+                  Interactive towns, high-speed parkour maps, parliment architectures, and Blender environment assets.
+                </p>
+              </div>
+              <a href="roblox.html" class="btn-retro btn-retro-primary w-full py-2 text-xs font-mono-retro">
+                OPEN DIRECTORY ➔
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 2: GitHub -->
+          <article class="bg-white border-2 border-[#000080] retro-shadow-sm flex flex-col group hover:border-[#1084d0] transition-colors">
+            <div class="win-titlebar text-[11px] py-1">
+              <span>SOURCE_CODE.GIT</span>
+              <i class="fab fa-github"></i>
+            </div>
+            <div class="h-40 overflow-hidden border-b-2 border-[#000080] relative bg-slate-900">
+              <img src="img/gtg.png" alt="Coding Projects" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"/>
+              <div class="absolute bottom-2 left-2 bg-[#000080] text-white text-[10px] font-mono-retro px-1.5 py-0.5 font-bold">
+                REPOSITORIES
+              </div>
+            </div>
+            <div class="p-4 flex flex-col flex-grow justify-between space-y-4">
+              <div>
+                <span class="text-[10px] font-mono-retro font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 inline-block mb-1">
+                  GIT &amp; WEB CODE
+                </span>
+                <h3 class="text-lg font-bold text-[#000080] group-hover:text-blue-600 transition">
+                  GitHub
+                </h3>
+                <p class="text-xs text-gray-600 mt-2 leading-relaxed">
+                  Public open-source code, web design experiments, responsive sites, and developer portfolio projects.
+                </p>
+              </div>
+              <a href="https://github.com/vyrnz" target="_blank" rel="noopener noreferrer" class="btn-retro w-full py-2 text-xs font-mono-retro">
+                VIEW GITHUB ➔
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 3: Itch.io -->
+          <article class="bg-white border-2 border-[#000080] retro-shadow-sm flex flex-col group hover:border-[#1084d0] transition-colors">
+            <div class="win-titlebar text-[11px] py-1">
+              <span>MY_GAMES.EXE</span>
+              <i class="fas fa-gamepad"></i>
+            </div>
+            <div class="h-40 overflow-hidden border-b-2 border-[#000080] relative bg-slate-900">
+              <img src="img/sas.png" alt="Itch.io Games" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"/>
+              <div class="absolute bottom-2 left-2 bg-[#000080] text-white text-[10px] font-mono-retro px-1.5 py-0.5 font-bold">
+                IM COOKED 🥀
+              </div>
+            </div>
+            <div class="p-4 flex flex-col flex-grow justify-between space-y-4">
+              <div>
+                <span class="text-[10px] font-mono-retro font-bold text-red-700 bg-red-50 border border-red-200 px-1.5 py-0.5 inline-block mb-1">
+                  ITCH.IO PROJECTS
+                </span>
+                <h3 class="text-lg font-bold text-[#000080] group-hover:text-blue-600 transition">
+                  Itch.io
+                </h3>
+                <p class="text-xs text-gray-600 mt-2 leading-relaxed">
+                  Experimental games, interactive mechanics tests, and standalone projects published under BeyondCas.
+                </p>
+              </div>
+              <a href="https://beyondcasual.itch.io" target="_blank" rel="noopener noreferrer" class="btn-retro w-full py-2 text-xs font-mono-retro">
+                PLAY ON ITCH ➔
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 4: YouTube -->
+          <article class="bg-white border-2 border-[#000080] retro-shadow-sm flex flex-col group hover:border-[#1084d0] transition-colors">
+            <div class="win-titlebar text-[11px] py-1">
+              <span>FUNNY_CAT.MP4</span>
+              <i class="fab fa-youtube"></i>
+            </div>
+            <div class="h-40 overflow-hidden border-b-2 border-[#000080] relative bg-slate-900">
+              <img src="img/OLD.webp" alt="YouTube Showcase" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"/>
+              <div class="absolute bottom-2 left-2 bg-[#000080] text-white text-[10px] font-mono-retro px-1.5 py-0.5 font-bold">
+                I COOKED 🔥
+              </div>
+            </div>
+            <div class="p-4 flex flex-col flex-grow justify-between space-y-4">
+              <div>
+                <span class="text-[10px] font-mono-retro font-bold text-red-600 bg-red-50 border border-red-200 px-1.5 py-0.5 inline-block mb-1">
+                  MEDIA &amp; TIMELAPSE
+                </span>
+                <h3 class="text-lg font-bold text-[#000080] group-hover:text-blue-600 transition">
+                  YouTube
+                </h3>
+                <p class="text-xs text-gray-600 mt-2 leading-relaxed">
+                  Speedbuilds, 3D modeling walkthroughs, environment fly-throughs, and creative showcase reels.
+                </p>
+              </div>
+              <a href="https://www.youtube.com/@BeyondCas" target="_blank" rel="noopener noreferrer" class="btn-retro w-full py-2 text-xs font-mono-retro">
+                SUBSCRIBE ➔
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- 90S WINDOWS TASKBAR / FOOTER -->
+  <footer class="bg-white border-t-2 border-[#000080] py-6 mt-16 retro-shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-mono-retro text-gray-600">
+      
+      <div class="flex items-center space-x-3">
+        <div class="w-6 h-6 bg-[#000080] text-white flex items-center justify-center font-bold text-xs">
+          E:
+        </div>
+        <div>
+          <span class="font-bold text-[#000080]">E-STATION // MAIN HUB</span>
+          <span class="text-gray-400 block sm:inline sm:ml-2">Thanks AI for helping &amp; making this style.</span>
+        </div>
+      </div>
+
+      <!-- Social Footer Links -->
+      <div class="flex items-center space-x-4">
+        <a href="https://discord.gg/BVqn7aqp" target="_blank" rel="noopener noreferrer" class="text-[#000080] hover:underline" title="Discord">
+          <i class="fab fa-discord fa-lg"></i>
+        </a>
+        <a href="https://www.youtube.com/@BeyondCas" target="_blank" rel="noopener noreferrer" class="text-[#000080] hover:underline" title="YouTube">
+          <i class="fab fa-youtube fa-lg"></i>
+        </a>
+        <a href="https://github.com/vyrnz" target="_blank" rel="noopener noreferrer" class="text-[#000080] hover:underline" title="GitHub">
+          <i class="fab fa-github fa-lg"></i>
+        </a>
+        <a href="mailto:awansetiawanind@gmail.com" class="text-[#000080] hover:underline" title="Email">
+          <i class="fas fa-envelope fa-lg"></i>
+        </a>
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="btn-retro px-2 py-1 text-xs">
+          ▲ TOP
+        </button>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- SCRIPT FOR RETRO CLOCK, MOBILE NAV & PAGE TRANSITIONS -->
+  <script>
+    // Live Retro Clock
+    function updateRetroClock() {
+      const clockEl = document.getElementById('retro-clock');
+      if (clockEl) {
+        const now = new Date();
+        clockEl.textContent = now.toLocaleTimeString('en-US', { hour12: false });
+      }
+    }
+    setInterval(updateRetroClock, 1000);
+    updateRetroClock();
+
+    // Mobile Menu Toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileMenuButton && mobileMenu) {
+      mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+
+    // Page Load & Smooth Fade Transitions
+    window.addEventListener('DOMContentLoaded', () => {
+      document.body.classList.remove('fade-out');
+      document.body.classList.add('fade-in');
+    });
+
+    document.querySelectorAll('a[href]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        const target = link.getAttribute('target');
+        // Only internal links trigger fade-out
+        if (href && !href.startsWith('#') && !href.startsWith('mailto:') && !href.startsWith('javascript:') && target !== '_blank') {
+          e.preventDefault();
+          document.body.classList.remove('fade-in');
+          document.body.classList.add('fade-out');
+          setTimeout(() => {
+            window.location.href = href;
+          }, 350);
+        }
+      });
+    });
+
+    window.addEventListener('beforeunload', () => {
+      document.body.classList.add('fade-out');
+    });
+  </script>
+
+</body>
+</html>
